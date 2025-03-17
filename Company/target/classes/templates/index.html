@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>User Management System</h1>
+
+    <!-- Section to display all users -->
+    <section class="section">
+        <h2>All Users</h2>
+        <button class="btn" onclick="fetchAllUsers()">Find Users</button>
+        <button class="reset-btn" onclick="resetSection('all-users')">Reset</button>
+        <div id="loading-all-users" class="loading" style="display: none;">Loading...</div>
+        <div id="all-users" class="user-list"></div>
+    </section>
+
+    <!-- Section to fetch user by ID -->
+    <section class="section">
+        <h2>Find User by ID</h2>
+        <input type="number" id="userId" placeholder="Enter User ID" class="input">
+        <button class="btn" onclick="fetchUserById()">Find User</button>
+        <button class="reset-btn" onclick="resetSection('user-by-id', 'userId')">Reset</button>
+        <div id="loading-user-by-id" class="loading" style="display: none;">Loading...</div>
+        <div id="user-by-id" class="user-list"></div>
+    </section>
+
+    <!-- Section to fetch users by role -->
+    <section class="section">
+        <h2>Find Users by Role</h2>
+        <select id="role" class="input">
+            <option value="" disabled selected>Select a role</option>
+            <option value="EMPLOYEE">Employee</option>
+            <option value="MANAGER">Manager</option>
+            <option value="ADMIN">Admin</option>
+        </select>
+        <button class="btn" onclick="fetchUsersByRole()">Find Users</button>
+        <button class="reset-btn" onclick="resetSection('users-by-role', 'role')">Reset</button>
+        <div id="loading-users-by-role" class="loading" style="display: none;">Loading...</div>
+        <div id="users-by-role" class="user-list"></div>
+    </section>
+
+    <!-- Section to fetch users by name -->
+    <section class="section">
+        <h2>Find Users by Name</h2>
+        <input type="text" id="userName" placeholder="Enter Name" class="input">
+        <button class="btn" onclick="fetchUsersByName()">Find Users</button>
+        <button class="reset-btn" onclick="resetSection('users-by-name', 'userName')">Reset</button>
+        <div id="loading-users-by-name" class="loading" style="display: none;">Loading...</div>
+        <div id="users-by-name" class="user-list"></div>
+    </section>
+
+    <!-- Add Employee Button -->
+    <section class="section">
+        <button class="btn" onclick="window.location.href='/add-employee'">Add Employee</button>
+    </section>
+    <section class="section">
+        <button class="btn delete-btn" onclick="window.location.href='/delete-user'">Delete User</button>
+    </section>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>
